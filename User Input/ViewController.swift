@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var outputLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +24,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         nameField.delegate = self
         phoneField.delegate = self
         
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: #selector(self.viewTapped))
+        self.view.addGestureRecognizer(tapRecognizer)
     }
     
     @IBAction func submitButtonTouched(_ sender: Any) {
         print("submitted")
+        
+        let name: String = nameField.text ?? ""
+        let phone: String = phoneField.text ?? ""
+        
+        outputLabel.text = """
+        name:: \(name)
+        phone:: \(phone)
+        """
+        
+        viewTapped()
+        
+        nameField.text = ""
+        phoneField.text = ""
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -42,6 +58,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         print("You hit enter key")
         return true;
+    }
+    
+    @objc func viewTapped() {
+        self.view.endEditing(true)
     }
     
     

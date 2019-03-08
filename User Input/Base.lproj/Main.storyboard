@@ -57,8 +57,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="label" destination="iJC-Mw-eUb" id="6yw-J4-yae"/>
                         <outlet property="nameField" destination="fpH-Hx-ghF" id="YBr-Uv-XAy"/>
+                        <outlet property="outputLabel" destination="iJC-Mw-eUb" id="6yw-J4-yae"/>
                         <outlet property="phoneField" destination="Mx4-C8-Kdu" id="HvU-kV-T7o"/>
                         <outlet property="submitButton" destination="5iw-3I-WXP" id="0jf-rF-OzF"/>
                     </connections>
